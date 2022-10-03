@@ -1,11 +1,10 @@
-// ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 
 class Inicio extends StatelessWidget {
+  const Inicio({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
 
     return Scaffold(
       appBar: AppBar(
@@ -13,203 +12,50 @@ class Inicio extends StatelessWidget {
         backgroundColor: Colors.transparent,
         bottomOpacity: 0.0,
         elevation: 0.0,
+        automaticallyImplyLeading: false,
         flexibleSpace: SafeArea(
-          child: Image.asset(
-            'imagenes/logo.png',
-            fit: BoxFit.scaleDown
-          ),
-        ),
+          child: Image.asset('imagenes/logo.png', fit: BoxFit.scaleDown)
+        )
       ),
-      backgroundColor: Color(0xFF590E11),
+      backgroundColor: const Color(0xFF590E11),
       body: SafeArea(
         child: GridView.count(
-          // padding: EdgeInsets.fromLTRB(20.0,100.0,20,20),
           childAspectRatio: 1.3,
           crossAxisCount: 2,
           children: [
-            Column(
-              children: [
-                Container(padding: EdgeInsets.all(20),
-                  child: Center(
-                    child: FloatingActionButton.large(
-                      onPressed: ()=>Navigator.of(context).pushNamed('/dos'),
-                        child: Icon(Icons.wrap_text),
-                        backgroundColor: Color(0xFFA72026),
-                        foregroundColor: Color(0xFFD9CEA1),
-                        heroTag: 'Esfuerzos'
-                    ),
-                  ),
-                ),
-                Text(
-                  'ESFUERZOS',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFFD9CEA1),
-                    shadows:const <Shadow>[
-                      Shadow(
-                        offset: Offset(5.0, 5.0),
-                        blurRadius: 15.0,
-                        color: Colors.black,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+            BotoneInicio(
+                name: 'ESFUERZOS',
+                icono: Icons.wrap_text,
+                route: '/dos'
             ),
-            Column(
-              children: [
-                Container(padding: EdgeInsets.all(20),
-                  child: Center(
-                    child: FloatingActionButton.large(
-                        onPressed: ()=>Navigator.of(context).pushNamed('/cuatro'),
-                        child: Icon(Icons.approval),
-                        backgroundColor: Color(0xFFA72026),
-                        foregroundColor: Color(0xFFD9CEA1),
-                        heroTag: 'Capacidad'
-                    ),
-                  ),
-                ),
-                Text(
-                  'CAP. PORTANTE',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFFD9CEA1),
-                    shadows:const <Shadow>[
-                      Shadow(
-                        offset: Offset(5.0, 5.0),
-                        blurRadius: 15.0,
-                        color: Colors.black,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+            BotoneInicio(
+                name: 'CAP. PORTANTE',
+                icono: Icons.approval,
+                route: '/cuatro'
             ),
-            Column(
-              children: [
-                Container(padding: EdgeInsets.all(20),
-                  child: Center(
-                    child: FloatingActionButton.large(
-                        onPressed: ()=>Navigator.of(context).pushNamed('/tres'),
-                        child: Icon(Icons.view_in_ar),
-                        backgroundColor: Color(0xFFA72026),
-                        foregroundColor: Color(0xFFD9CEA1),
-                        heroTag: 'Asentamientos'
-                    ),
-                  ),
-                ),
-                Text(
-                  'ASENTAMIENTOS',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFFD9CEA1),
-                    shadows:const <Shadow>[
-                      Shadow(
-                        offset: Offset(5.0, 5.0),
-                        blurRadius: 15.0,
-                        color: Colors.black,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+            BotoneInicio(
+                name: 'ASENTAMIENTOS',
+                icono: Icons.view_in_ar,
+                route: '/tres'
             ),
-            Column(
-              children: [
-                Container(padding: EdgeInsets.all(20),
-                  child: Center(
-                    child: FloatingActionButton.large(
-                        onPressed: ()=>Navigator.of(context).pushNamed('/tres'),
-                        child: Icon(Icons.view_week),
-                        backgroundColor: Color(0xFFA72026),
-                        foregroundColor: Color(0xFFD9CEA1),
-                        heroTag: 'Grupo pilotes'
-                    ),
-                  ),
-                ),
-                Text(
-                  'GRUPO PILOTES',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFFD9CEA1),
-                    shadows:const <Shadow>[
-                      Shadow(
-                        offset: Offset(5.0, 5.0),
-                        blurRadius: 15.0,
-                        color: Colors.black,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+            BotoneInicio(
+                name: 'GRUPO PILOTES',
+                icono: Icons.view_week,
+                route: '/tres'
             ),
-            Column(
-              children: [
-                Container(padding: EdgeInsets.all(20),
-                  child: Center(
-                    child: FloatingActionButton.large(
-                        onPressed: ()=>Navigator.of(context).pushNamed('/cinco'),
-                        child: Icon(Icons.architecture),
-                        backgroundColor: Color(0xFFA72026),
-                        foregroundColor: Color(0xFFD9CEA1),
-                        heroTag: 'Pilotes'
-                    ),
-                  ),
-                ),
-                Text(
-                  'MICROPILOTES',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFFD9CEA1),
-                    shadows:const <Shadow>[
-                      Shadow(
-                        offset: Offset(5.0, 5.0),
-                        blurRadius: 15.0,
-                        color: Colors.black,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+            BotoneInicio(
+                name: 'MICROPILOTES',
+                icono: Icons.architecture,
+                route: '/cinco'
             ),
-            Column(
-              children: [
-                Container(padding: EdgeInsets.all(20),
-                  child: Center(
-                    child: FloatingActionButton.large(
-                        onPressed: ()=>Navigator.of(context).pushNamed('/seis'),
-                        child: Icon(Icons.textsms_outlined),
-                        backgroundColor: Color(0xFFA72026),
-                        foregroundColor: Color(0xFFD9CEA1),
-                        heroTag: 'Preguntas'
-                    ),
-                  ),
-                ),
-                Text(
-                  'FAQ',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFFD9CEA1),
-                    shadows:const <Shadow>[
-                      Shadow(
-                        offset: Offset(5.0, 5.0),
-                        blurRadius: 15.0,
-                        color: Colors.black,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
+            BotoneInicio(
+                name: 'FAQ',
+                icono: Icons.textsms_outlined,
+                route: '/seis'
+            )
+          ]
+        )
+      )
     );
   }
 }
@@ -226,145 +72,49 @@ class Reinicio extends StatelessWidget {
           bottomOpacity: 0.0,
           elevation: 0.0,
           flexibleSpace: SafeArea(
-            child: Image.asset(
-                'imagenes/logo.png',
-                fit: BoxFit.scaleDown
-            ),
-          ),
+            child: Image.asset('imagenes/logo.png', fit: BoxFit.scaleDown)
+          )
         ),
-        backgroundColor: Color(0xFF590E11),
+        backgroundColor: const Color(0xFF590E11),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ElevatedButton.icon(
-                  onPressed: ()=>Navigator.of(context).pushNamed('/cinco'),
-                  icon: Icon(
-                      Icons.create_rounded,
-                      color: Color(0xFFD9CEA1),
-                      size: 50,
-                      shadows:const <Shadow>[
-                        Shadow(
-                          offset: Offset(5.0, 5.0),
-                          blurRadius: 15.0,
-                          color: Colors.black
-                    )
-                  ]),
-                  label: Text(
-                    'MICROPILOTES',
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFFD9CEA1),
-                      shadows:const <Shadow>[
-                        Shadow(
-                          offset: Offset(5.0, 5.0),
-                          blurRadius: 15.0,
-                          color: Colors.black
-                        )
-                      ]
-                    )
-                  ),
-                    style: ElevatedButton.styleFrom(
-                      primary: Color(0xFFA72026),
-                      fixedSize: const Size(300, 80),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50)
-                      )
-                    )
+              BotonesReinicio(
+                  name: 'MICROPILOTES',
+                  icono: Icons.create_rounded,
+                  route: '/cinco'
               ),
-              SizedBox(height: 20),
-              ElevatedButton.icon(
-                  onPressed: ()=>Navigator.of(context).push(MaterialPageRoute(builder: (context) => Inicio())),
-                  icon: Icon(
-                      Icons.add,
-                      color: Color(0xFFD9CEA1),
-                      size: 50,
-                      shadows:const <Shadow>[
-                        Shadow(
-                            offset: Offset(5.0, 5.0),
-                            blurRadius: 15.0,
-                            color: Colors.black
-                        )
-                      ]),
-                  label: Text(
-                      '  FUNCIONES',
-                      style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFFD9CEA1),
-                          shadows:const <Shadow>[
-                            Shadow(
-                                offset: Offset(5.0, 5.0),
-                                blurRadius: 15.0,
-                                color: Colors.black
-                            )
-                          ]
-                      )
-                  ),
-                  style: ElevatedButton.styleFrom(
-                      primary: Color(0xFFA72026),
-                      fixedSize: const Size(300, 80),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50)
-                      )
-                  )
+              const SizedBox(height: 20),
+              BotonesReinicio(
+                  name: '  FUNCIONES',
+                  icono: Icons.add,
+                  route: '/uno'
               ),
-              SizedBox(height: 20),
-              ElevatedButton.icon(
-                //meta aca el tema del manual nativo desde la aplicacion, no se ponda con mmdas compa
-                  onPressed: ()=>Navigator.of(context).pushNamed('/siete'),
-                  icon: Icon(
-                      Icons.quiz_outlined,
-                      color: Color(0xFFD9CEA1),
-                      size: 50,
-                      shadows:const <Shadow>[
-                        Shadow(
-                            offset: Offset(5.0, 5.0),
-                            blurRadius: 15.0,
-                            color: Colors.black
-                        )
-                      ]),
-                  label: Text(
-                      '    MANUAL ',
-                      style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFFD9CEA1),
-                          shadows:const <Shadow>[
-                            Shadow(
-                                offset: Offset(5.0, 5.0),
-                                blurRadius: 15.0,
-                                color: Colors.black
-                            )
-                          ]
-                      )
-                  ),
-                  style: ElevatedButton.styleFrom(
-                      primary: Color(0xFFA72026),
-                      fixedSize: const Size(300, 80),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50)
-                      )
-                  )
+              const SizedBox(height: 20),
+              BotonesReinicio(
+                name: '    MANUAL ',
+                icono: Icons.quiz_outlined,
+                route: '/siete'
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.only(left:200),
                 child: FloatingActionButton.large(
-                  onPressed: ()=>Navigator.of(context).pushNamed('/seis'),
-                  backgroundColor: Color(0xFFA72026),
-                  child: Icon(
-                    Icons.feedback_outlined,
-                    color: Color(0xFFD9CEA1),
-                    size: 50,
-                    shadows:const <Shadow>[
-                      Shadow(
-                          offset: Offset(5.0, 5.0),
-                          blurRadius: 15.0,
-                          color: Colors.black
-                      )
-                    ]),
+                    onPressed: ()=>Navigator.of(context).pushNamed('/seis'),
+                    backgroundColor: const Color(0xFFA72026),
+                    child: const Icon(
+                        Icons.feedback_outlined,
+                        color: Color(0xFFD9CEA1),
+                        size: 50,
+                        shadows:<Shadow>[
+                          Shadow(
+                              offset: Offset(5.0, 5.0),
+                              blurRadius: 15.0,
+                              color: Colors.black
+                          )
+                        ]
+                    )
                 ),
               )
             ]
@@ -374,7 +124,99 @@ class Reinicio extends StatelessWidget {
   }
 }
 
+class BotonesReinicio extends StatelessWidget {
+  String name;
+  IconData icono;
+  String route;
+  BotonesReinicio({
+    Key? key,
+    required this.name,
+    required this.icono,
+    required this.route
+  }) : super(key: key);
 
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton.icon(
+        onPressed: ()=>Navigator.of(context).pushNamed(route),
+        icon: Icon(
+            icono,
+            size: 50,
+            color: const Color(0xFFD9CEA1),
+            shadows:const <Shadow>[
+              Shadow(
+                  offset: Offset(5.0, 5.0),
+                  blurRadius: 15.0,
+                  color: Colors.black
+              )
+            ]
+        ),
+        label: Text(
+            name,
+            style: const TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFFD9CEA1),
+                shadows:<Shadow>[
+                  Shadow(
+                      offset: Offset(5.0, 5.0),
+                      blurRadius: 15.0,
+                      color: Colors.black
+                  )
+                ]
+            )
+        ),
+        style: ElevatedButton.styleFrom(
+            backgroundColor: const Color(0xFFA72026),
+            fixedSize: const Size(300, 80),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(50)
+            )
+        )
+    );
+  }
+}
 
-//Aca no se aplican los botones por el tema del context
-//el context por fuera del build no sirve
+class BotoneInicio extends StatelessWidget {
+  String name;
+  IconData icono;
+  String route;
+  BotoneInicio({
+    Key? key,
+    required this.name,
+    required this.icono,
+    required this.route
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        const SizedBox(height: 5),
+        FloatingActionButton.large(
+            onPressed: ()=>Navigator.of(context).pushNamed(route),
+            heroTag: name,
+            backgroundColor: const Color(0xFFA72026),
+            foregroundColor: const Color(0xFFD9CEA1),
+            child: Icon(icono)
+        ),
+        Text(
+          name,
+          style: const TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            color: Color(0xFFD9CEA1),
+            shadows:<Shadow>[
+              Shadow(
+                offset: Offset(5.0, 5.0),
+                blurRadius: 15.0,
+                color: Colors.black
+              )
+            ]
+          )
+        )
+      ]
+    );
+  }
+}

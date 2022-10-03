@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/link.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Contacto extends StatefulWidget {
@@ -69,7 +68,7 @@ class _ContactoState extends State<Contacto> {
                   }),
                   icon: const Icon(Icons.telegram, color: Color(0xFFFFFFFF), size: 30),
                   style: ElevatedButton.styleFrom(
-                      primary: const Color(0xFF3B89FF),
+                      backgroundColor: const Color(0xFF3B89FF),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50)
                       )
@@ -82,7 +81,7 @@ class _ContactoState extends State<Contacto> {
                   }),
                   icon: const Icon(Icons.whatsapp, color: Color(0xFFFFFFFF), size: 30),
                   style: ElevatedButton.styleFrom(
-                      primary: const Color(0xFF42DC1D),
+                      backgroundColor: const Color(0xFF42DC1D),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50)
                       )

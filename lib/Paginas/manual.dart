@@ -12,7 +12,7 @@ class Manual extends StatelessWidget {
       throw 'Could not launch $url';
     }
   }
-
+//Para contactarme a mi
   @override
   Widget build(BuildContext context) {
     final Uri manual =

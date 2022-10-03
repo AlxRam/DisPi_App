@@ -1,6 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-import 'dart:ffi';
-import 'dart:math';
 import 'package:esfuerzos/Paginas/graficas.dart';
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart'; //Para sumar listas
@@ -32,7 +29,7 @@ class Calesf extends State<CalculoEsfuerzos> {
   int img = 0;
   //Para comprobar que los campos no esten vacios
   final myFormKey = GlobalKey<FormState>();
-  //aca se mete todo el lio del widget
+  //aca se mete to-do el lio del widget
   //se mete el setState (), para informar que hubo un cambio
   @override
   Widget build(BuildContext context) {
@@ -40,11 +37,11 @@ class Calesf extends State<CalculoEsfuerzos> {
       key: myFormKey,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Calculo Esfuerzos verticales'),
+          title: const Text('Calculo Esfuerzos verticales'),
         ),
         body: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Column(
               children: [
                 ListView.builder(
@@ -58,7 +55,7 @@ class Calesf extends State<CalculoEsfuerzos> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     botonRes(),
-                    SizedBox(height: 12),
+                    const SizedBox(height: 12),
                     botonAgg()
                   ]
                 ),
@@ -85,8 +82,8 @@ class Calesf extends State<CalculoEsfuerzos> {
       // mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         Container(
-            margin: EdgeInsets.only(left: 60),
-            decoration: BoxDecoration(
+            margin: const EdgeInsets.only(left: 60),
+            decoration: const BoxDecoration(
               image: DecorationImage(image: AssetImage('imagenes/estratos/n.png')),
             ),
             height: 100,
@@ -101,7 +98,7 @@ class Calesf extends State<CalculoEsfuerzos> {
                   return null;
                 },
                 onSaved: (value) => gam.add(double.parse(value!)), //Aca guarda el valor
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: "kN/m³",
                   ),
                 keyboardType: TextInputType.number,
@@ -109,7 +106,7 @@ class Calesf extends State<CalculoEsfuerzos> {
             )
         ),
         Container(
-            margin: EdgeInsets.only(left: 1),
+            margin: const EdgeInsets.only(left: 1),
             width: MediaQuery.of(context).size.width*0.20,
             child: TextFormField(
               validator: (String? value) {
@@ -119,7 +116,7 @@ class Calesf extends State<CalculoEsfuerzos> {
                 return null;
               },
               onSaved: (value) => prof.add(double.parse(value!)),
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: "mts",
                 ),
               keyboardType: TextInputType.number,
@@ -143,7 +140,7 @@ class Calesf extends State<CalculoEsfuerzos> {
       //     profn = 100;
       //   }
       // },
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
         hintText: "Nivel Freatico",
         icon: Icon(Icons.water, color: Color(0xFFB14246))),
       keyboardType: TextInputType.number,
@@ -159,7 +156,7 @@ class Calesf extends State<CalculoEsfuerzos> {
         return null;
       },
       onSaved: (value) => proff = double.parse(value!),
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
         hintText: "Profundidad Objetivo",
         icon: Icon(Icons.arrow_downward, color: Color(0xFFB14246))),
       keyboardType: TextInputType.number,
@@ -169,37 +166,33 @@ class Calesf extends State<CalculoEsfuerzos> {
 //Botones
 
   botonAgg() {
-    return Container(
-      child: FloatingActionButton(
-          onPressed: () => _suma(),
-          child: Icon(Icons.add),
-          backgroundColor: Color(0xFF590E11), //Color fondo
-          foregroundColor: Color(0xFFD9CEA1), //Color letra
-          heroTag: 'Agregar'
-      ),
+    return FloatingActionButton(
+        onPressed: () => _suma(),
+        child: const Icon(Icons.add),
+        backgroundColor: const Color(0xFF590E11), //Color fondo
+        foregroundColor: const Color(0xFFD9CEA1), //Color letra
+        heroTag: 'Agregar'
     );
   }
 
   botonRes() {
-    return Container(
-      child: FloatingActionButton.small(
-          onPressed: () => _resta(),
-          child: Icon(Icons.remove),
-          backgroundColor: Color(0xFF590E11), //Color fondo
-          foregroundColor: Color(0xFFD9CEA1), //Color letra
-          heroTag: 'Restar'
-      ),
+    return FloatingActionButton.small(
+        onPressed: () => _resta(),
+        child: const Icon(Icons.remove),
+        backgroundColor: const Color(0xFF590E11), //Color fondo
+        foregroundColor: const Color(0xFFD9CEA1), //Color letra
+        heroTag: 'Restar'
     );
   }
 
   botonCal() {
     return Container(
-      margin: EdgeInsets.only(left: 300.0, top: 13.0),
+      margin: const EdgeInsets.only(left: 300.0, top: 13.0),
       child: FloatingActionButton(
           onPressed: () => _valida(),
-          child: Icon(Icons.calculate),
-          backgroundColor: Color(0xFF590E11), //Color fondo
-          foregroundColor: Color(0xFFD9CEA1), //Color letra
+          child: const Icon(Icons.calculate),
+          backgroundColor: const Color(0xFF590E11), //Color fondo
+          foregroundColor: const Color(0xFFD9CEA1), //Color letra
           heroTag: 'Calcular'
       ),
     );
@@ -207,7 +200,7 @@ class Calesf extends State<CalculoEsfuerzos> {
 
   botonSup() {
     return Container(
-      margin: EdgeInsets.only(left: 300.0, top: 13.0),
+      margin: const EdgeInsets.only(left: 300.0, top: 13.0),
       child: FloatingActionButton(
           onPressed: () {
             myFormKey.currentState!.reset();
@@ -219,9 +212,9 @@ class Calesf extends State<CalculoEsfuerzos> {
               }
             );
           },
-          child: Icon(Icons.clear),
-          backgroundColor: Color(0xFF590E11), //Color fondo
-          foregroundColor: Color(0xFFD9CEA1), //Color letra
+          child: const Icon(Icons.clear),
+          backgroundColor: const Color(0xFF590E11), //Color fondo
+          foregroundColor: const Color(0xFFD9CEA1), //Color letra
           heroTag: 'Suprimir'
       ),
     );
@@ -232,7 +225,7 @@ class Calesf extends State<CalculoEsfuerzos> {
     if (nEst>5) { //Para que no metan mas de 5 estratos
       showDialog(
         context: context,
-        builder: (context)=>AlertDialog(
+        builder: (context)=>const AlertDialog(
           title: Text('ALERTA !'),
           content: Text('Excediste la cantidad máxima de estratos que son 5, no consideres uno.'),
         )
@@ -240,7 +233,7 @@ class Calesf extends State<CalculoEsfuerzos> {
     } else if (!form.validate()) { //Para que se entere que no lleno un campo
       showDialog(
         context: context,
-        builder: (context)=>AlertDialog(
+        builder: (context)=>const AlertDialog(
           title: Text('ALERTA !'),
           content: Text('No llenastes todos los campos'),
         )
@@ -257,13 +250,11 @@ class Calesf extends State<CalculoEsfuerzos> {
   }
 
   void _suma() {
-    final form = myFormKey.currentState!;
     setState(() => nEst++
     );
   }
 
   void _resta() {
-    final form = myFormKey.currentState!;
     if (nEst>1) {//Para que no borre el unico que haya
       setState(() => nEst--
       );
@@ -309,7 +300,7 @@ class Resultados extends StatelessWidget {
   double proff=0; // mire si este lo usa despues
   int i=0;
   //Para recibir y el this para renombrar las variables
-  Resultados(this.prof,this.gam,this.esfe,this.proff);
+  Resultados(this.prof,this.gam,this.esfe,this.proff, {Key? key}) : super(key: key);
   //Lista
   List<String> nLis =['z(m)','γh(kN/m³)',"σ'v(kPa)"];
   List<String> nLis2 =['z(m)','yh(kN/m)',"o'v(kPa)"];
@@ -326,11 +317,11 @@ class Resultados extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Resultados')
+        title: const Text('Resultados')
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
@@ -348,14 +339,14 @@ class Resultados extends StatelessWidget {
                   ),
                 ),
               ),
-              Center(
+              const Center(
                   child: Text('Tabla de resultados', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               //Titulos
               Table(
                 border: TableBorder.all(),
-                defaultColumnWidth: FixedColumnWidth(120),
+                defaultColumnWidth: const FixedColumnWidth(120),
                 defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                 children: [
                   TableRow(
@@ -364,8 +355,8 @@ class Resultados extends StatelessWidget {
                         Container(
                           height: 30,
                           alignment: Alignment.center,
-                          decoration: BoxDecoration(color: Colors.grey),
-                          child: Text(nLis[i], style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))
+                          decoration: const BoxDecoration(color: Colors.grey),
+                          child: Text(nLis[i], style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold))
                         )
                     ]
                   )
@@ -374,11 +365,11 @@ class Resultados extends StatelessWidget {
               //Generador de datos
               Table(
                 border: TableBorder.all(),
-                defaultColumnWidth: FixedColumnWidth(120),
+                defaultColumnWidth: const FixedColumnWidth(120),
                 defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                 children: [
                   for (i = 0; i<prof.length; i++) TableRow(
-                    decoration: BoxDecoration(color: Colors.white38),
+                    decoration: const BoxDecoration(color: Colors.white38),
                     children: [
                       Center(child: Text('${prof[i]}')),
                       Center(child: Text('${gam[i]}')),
@@ -388,19 +379,19 @@ class Resultados extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 20),
-              Center(
+              const SizedBox(height: 20),
+              const Center(
                   child: Text('Esquema Planteado', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               for (i = 0; i<(prof.length-1); i++)
                 Center(
-                    child: Container(
+                    child: SizedBox(
                         height: 80,
                         child: Image.asset(nImg[i])
                     )
                 ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                   onPressed: (){
                     salva.capture().then((value) async {
@@ -408,8 +399,8 @@ class Resultados extends StatelessWidget {
                     _createPDF();
                     });
                   },
-                  child: Text('Generar PDF'),
-                  style: ElevatedButton.styleFrom(primary: Color(0xFFA72026))
+                  child: const Text('Generar PDF'),
+                  style: ElevatedButton.styleFrom(primary: const Color(0xFFA72026))
               ),
             ],
           ),
@@ -491,7 +482,7 @@ class Resultados extends StatelessWidget {
 
     page.graphics.drawImage(
         PdfBitmap(await _readImageData(_imageFile)),
-        Rect.fromLTWH(30, 70, 440, 550));
+        const Rect.fromLTWH(30, 70, 440, 550));
 
     PdfGrid grid = PdfGrid();
     grid.style = PdfGridStyle(
@@ -521,7 +512,7 @@ class Resultados extends StatelessWidget {
     //agg para pruebas
     document.pages.add().graphics.drawString(
         'Hello World!!!', PdfStandardFont(PdfFontFamily.helvetica, 20),
-        brush: PdfBrushes.black, bounds: Rect.fromLTWH(10, 10, 300, 50));
+        brush: PdfBrushes.black, bounds: const Rect.fromLTWH(10, 10, 300, 50));
 
     List<int> bytes = await document.save(); //cuidado que aca metio esta mmada del await
     document.dispose();

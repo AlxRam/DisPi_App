@@ -1,32 +1,24 @@
-// ignore_for_file: prefer_const_constructors
-import 'dart:ffi';
-
 import 'package:esfuerzos/Paginas/calculo_esfuerzo.dart';
-import 'package:esfuerzos/Paginas/capacidad_portante.dart';
 import 'package:esfuerzos/Paginas/contacto.dart';
 import 'package:esfuerzos/Paginas/inicio.dart';
 import 'package:esfuerzos/Paginas/manual.dart';
 import 'package:esfuerzos/Paginas/micro_pilotes.dart';
-import 'package:esfuerzos/Paginas/nuevacon.dart'; //usado
 import 'package:esfuerzos/Paginas/wip.dart';
 import 'package:flutter/material.dart';
 //Pruebas
-import 'Paginas/otraprueba.dart';
-import 'package:esfuerzos/Paginas/prueba.dart';
-import 'package:esfuerzos/Paginas/pruebalista.dart';
 import 'package:esfuerzos/Paginas/idea_dos.dart';
-import 'package:esfuerzos/Paginas/idea_dos.dart';
-import 'package:esfuerzos/Paginas/graficas.dart';
 
-void main() => runApp(EditarApp());
+void main() => runApp(const EditarApp());
 
 class EditarApp extends StatelessWidget {
+  const EditarApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
           backgroundColor: Color(0xFF590E11), //Color fondo
           foregroundColor: Color(0xFFD9CEA1) //Color letra
         ),
@@ -35,15 +27,15 @@ class EditarApp extends StatelessWidget {
           //headline6 titulo de los scafold
           //subtitle1 texto de los hint
           //bodytext2 texto normal
-          headline6: TextStyle(
+          headline6: const TextStyle(
             fontFamily: 'ubuntub',
             fontSize: 25,
           ),
-          bodyText2: TextStyle(
+          bodyText2: const TextStyle(
             fontFamily: 'ubuntur',
             fontSize: 20,
           ),
-          subtitle1: TextStyle(
+          subtitle1: const TextStyle(
             // fontFamily: 'cambri', //Use fuente cambri para formulas matematicas
             fontStyle: FontStyle.italic,
             fontSize: 20,
@@ -54,24 +46,15 @@ class EditarApp extends StatelessWidget {
         //primaryColor: Color(0xFF590E11)
       ),
       routes: {
-        '/uno': (context) => Inicio(),
+        '/uno': (context) => const Inicio(),
         '/dos': (context) => CalculoEsfuerzos(),
         '/tres': (context) => Wip(),
-        // '/cuatro': (context) => CalculoPortante(),
-        '/cuatro': (context) => Inicializador(),
-        '/cinco': (context) => IniciaCalMicro(),
-        '/seis': (context) => Contacto(),
+        '/cuatro': (context) => const Inicializador(),
+        '/cinco': (context) => const IniciaCalMicro(),
+        '/seis': (context) => const Contacto(),
         '/siete': (context) => Manual()
-        // '/cinco': (context) => Inicializador(),
-
-
       },
-      // home: PruebaListas(title: 'Prueba Lista'),
-      // home: PruebaListass(title: 'Prueba Lista numero 2'),
-      // home: pruebaPizza(title: 'Prueba Pizza'),
-      home: Reinicio(),
-      // home: MyHomePage(title: 'Hi',),
-      // home: Scaffold(body: GraficaArea(595,100,707.73,682.21,672.64,354.20,596.29,19.32,16.39)),
+      home: const Reinicio(),
     );
   }
 }

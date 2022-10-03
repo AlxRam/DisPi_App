@@ -15,7 +15,7 @@ class Wip extends StatelessWidget {
                   width: 150,
                   height: 150,
                   child: FittedBox(child: Icon(Icons.directions_walk_outlined,color: Color(0xFFD9CEA1)))),
-              Text('Trabajo en proceso',
+              Text('Trabajo en proceso ',
                 style: TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.bold,

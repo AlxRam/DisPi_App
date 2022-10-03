@@ -23,7 +23,7 @@ class _GraficaLineaState extends State<GraficaLinea> {
     _chartData = getChartData();
     _tooltipBehavior = TooltipBehavior(enable: true);
     _crosshairBehavior = CrosshairBehavior(enable:true,hideDelay: 3000);
-    _zoomPanBehavior = ZoomPanBehavior(enablePinching: true);
+    _zoomPanBehavior = ZoomPanBehavior(enablePinching: true, zoomMode: ZoomMode.xy, enablePanning: true);
     super.initState();
   }
 
@@ -95,15 +95,15 @@ class GraficaArea extends StatefulWidget {
 }
 
 class _GraficaAreaState extends State<GraficaArea> {
-  late List<_ChartData> falla;
-  late List<_ChartData> calculados;
+  late List<_ChartData> crgApl;
+  late List<_ChartData> crgUlt;
   late TooltipBehavior _tooltip;
   late ZoomPanBehavior _zoomPanBehavior;
 
 
   @override
   void initState() {
-    falla = [ //calulado la otra sera estado limite o permitido
+    crgApl = [//La carga aplicada, dictaminada por el avaluo cargas
       _ChartData('Pc\n(Enc.)', widget.pc),
       _ChartData('Pc\n(S.C.)', widget.pc),
       _ChartData('Pt\n(Enc.)', widget.pt),
@@ -111,7 +111,7 @@ class _GraficaAreaState extends State<GraficaArea> {
       _ChartData('Pg', widget.pc),
       _ChartData('σ', widget.ou)
     ];
-    calculados = [ //calulado la otra sera estado limite o permitido
+    crgUlt = [ //calulado sera estado limite o carga ultima
       _ChartData('Pc\n(Enc.)', widget.pce),
       _ChartData('Pc\n(S.C.)', widget.pcs),
       _ChartData('Pt\n(Enc.)', widget.pte),
@@ -120,7 +120,7 @@ class _GraficaAreaState extends State<GraficaArea> {
       _ChartData('σ', widget.on)
     ];
     _tooltip = TooltipBehavior(enable: true);
-    _zoomPanBehavior = ZoomPanBehavior(enablePinching: true);
+    _zoomPanBehavior = ZoomPanBehavior(enablePinching: true, zoomMode: ZoomMode.xy, enablePanning: true);
     super.initState();
   }
 
@@ -134,7 +134,7 @@ class _GraficaAreaState extends State<GraficaArea> {
             legend: Legend(
                 isVisible: true,
                 position: LegendPosition.top,
-                offset: Offset(110,0),
+                offset: const Offset(110,0),
                 width: '50%',
                 borderWidth: 1.5,
                 borderColor: Colors.black,
@@ -142,35 +142,29 @@ class _GraficaAreaState extends State<GraficaArea> {
                 overflowMode: LegendItemOverflowMode.wrap
             ),
             series: <ChartSeries<_ChartData, String>>[
-              AreaSeries<_ChartData, String>(
-                  dataSource: falla,
+              ColumnSeries<_ChartData, String>(
+                  dataSource: crgUlt,
                   xValueMapper: (_ChartData data, _) => data.x,
                   yValueMapper: (_ChartData data, _) => data.y,
-                  name: 'Falla',
-                  opacity: 0.5,
-                  borderColor: Color(0xFFA72026),
+                  name: 'Carga Última',
+                  opacity: 0.75,
+                  borderRadius: const BorderRadius.vertical(top: Radius.circular(3.5)),
+                  borderColor: const Color(0xFFA72026),
                   borderWidth: 2.25,
-                  color: Color(0xFFA72026),//Color(0xFF6ABCFF),
-                  markerSettings: const MarkerSettings(
-                      isVisible: true,
-                      color: Color(0xFF770508)
-                  ),
+                  color: const Color(0xFFA72026)
               ),
-              AreaSeries<_ChartData, String>(
-                  dataSource: calculados,
+              ColumnSeries<_ChartData, String>(
+                  dataSource: crgApl,
                   xValueMapper: (_ChartData data, _) => data.x,
                   yValueMapper: (_ChartData data, _) => data.y,
-                  name: 'Calculado',
-                  opacity: 0.5,
-                  borderColor: Color(0xFF29A3FF),
+                  name: 'Carga Aplicada',
+                  opacity: 0.75,
+                  borderRadius: const BorderRadius.vertical(top: Radius.circular(3.5)),
+                  borderColor: const Color(0xFF29A3FF),
                   borderWidth: 2.25,
-                  color: Color(0xFF6ABCFF),//Color(0xFF6ABCFF), //defina si azul o verde
-                  markerSettings: const MarkerSettings(
-                      isVisible: true,
-                      color: Color(0xFF0F8DFC)
-                  ),
-              ),
-            ],
+                  color: const Color(0xFF6ABCFF)
+              )
+            ]
     );
   }
 }
@@ -250,7 +244,7 @@ class _GraficaAsentaState extends State<GraficaAsenta> {
     ];
     _tooltipBehavior = TooltipBehavior(enable: true);
     _crosshairBehavior = CrosshairBehavior(enable:true,hideDelay: 3000);
-    _zoomPanBehavior = ZoomPanBehavior(enablePinching: true);
+    _zoomPanBehavior = ZoomPanBehavior(enablePinching: true, zoomMode: ZoomMode.xy, enablePanning: true);
     super.initState();
   }
 
@@ -290,7 +284,7 @@ class _GraficaAsentaState extends State<GraficaAsenta> {
                   xValueMapper: (AseData data, _) => data.ejeX,
                   yValueMapper: (AseData data, _) => data.ejeY,
                   enableTooltip: true,
-                  color: Color(0xFF177BE0),
+                  color: const Color(0xFF177BE0),
                   markerSettings: const MarkerSettings(
                       width: 5,
                       height: 5,
@@ -304,7 +298,7 @@ class _GraficaAsentaState extends State<GraficaAsenta> {
                   xValueMapper: (AseData data, _) => data.ejeX,
                   yValueMapper: (AseData data, _) => data.ejeY,
                   enableTooltip: true,
-                  color: Color(0xFFDC0000),
+                  color: const Color(0xFFDC0000),
                   markerSettings: const MarkerSettings(
                       width: 5,
                       height: 5,
@@ -318,7 +312,7 @@ class _GraficaAsentaState extends State<GraficaAsenta> {
                   xValueMapper: (AseData data, _) => data.ejeX,
                   yValueMapper: (AseData data, _) => data.ejeY,
                   enableTooltip: true,
-                  color: Color(0xFF4A1AAB),
+                  color: const Color(0xFF4A1AAB),
                   markerSettings: const MarkerSettings(
                       width: 5,
                       height: 5,
